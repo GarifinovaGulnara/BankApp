@@ -34,8 +34,9 @@ namespace BankApp
             else
             {
                 account.Balance -= summ;
-                return summ;
             }
+
+            return (int)summ;
         }
 
         public static int Deposit()     //Пополнение
