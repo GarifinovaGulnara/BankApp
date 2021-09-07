@@ -16,7 +16,7 @@ namespace BankApp
 
         public static void Transaction(Account accountSeller, Account accountGetter, double summ)
         {
-            if(accountSeller.Balance < -1000)
+            if(accountSeller.Balance < 0)
             {
                 Console.WriteLine("Недостаточно средств");
             }
@@ -49,16 +49,22 @@ namespace BankApp
             return (int)account.Balance;
         }
 
-        public static void TakeCredit()
+        public static void TakeCredit(Account account, double summ)
         {
-            ;
+            Console.WriteLine("Введите кол-во месяцев");
+            account.Balance += summ;
+            int manthCount = Convert.ToInt32(Console.ReadLine());
+            InterestRate = 0.057;
+            account.Balance -= (summ * InterestRate / 12) * manthCount;
+
+            Console.WriteLine(account.Balance);
         }
 
-        public static void Profit(Account account)
+        public static void Profit(Account account)      //Вклад
         {
             Console.WriteLine("Введите кол-во месяцев");
             int manthCount = Convert.ToInt32(Console.ReadLine());
-            InterestRate = 0.057;
+            InterestRate = 0.035;
             account.Balance += (account.Balance * InterestRate / 12) * manthCount;
 
             Console.WriteLine(account.Balance);
