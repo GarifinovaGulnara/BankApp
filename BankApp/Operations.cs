@@ -6,6 +6,9 @@ namespace BankApp
 {
     class Operations
     {
+        private static double interestRate;
+
+        public static double InterestRate { get; set; }
         public static void ShowBalance(Account account)
         {
             Console.WriteLine(account.Balance);
@@ -43,7 +46,7 @@ namespace BankApp
         {
             account.Balance += summ;
 
-            return (int)summ;
+            return (int)account.Balance;
         }
 
         public static void TakeCredit()
@@ -55,8 +58,8 @@ namespace BankApp
         {
             Console.WriteLine("Введите кол-во месяцев");
             int manthCount = Convert.ToInt32(Console.ReadLine());
-            static double interestRate;
-            account.Balance += (account.Balance * interestRate / 12) * manthCount;
+            InterestRate = 0.057;
+            account.Balance += (account.Balance * InterestRate / 12) * manthCount;
 
             Console.WriteLine(account.Balance);
         }
