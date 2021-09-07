@@ -39,14 +39,26 @@ namespace BankApp
             return (int)summ;
         }
 
-        public static int Deposit()     //Пополнение
+        public static int Deposit(Account account, double summ)     //Пополнение
         {
-            return 0;
+            account.Balance += summ;
+
+            return (int)summ;
         }
 
         public static void TakeCredit()
         {
             ;
+        }
+
+        public static void Profit(Account account)
+        {
+            Console.WriteLine("Введите кол-во месяцев");
+            int manthCount = Convert.ToInt32(Console.ReadLine());
+            static double interestRate;
+            account.Balance += (account.Balance * interestRate / 12) * manthCount;
+
+            Console.WriteLine(account.Balance);
         }
     }
 }

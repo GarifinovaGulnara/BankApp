@@ -8,6 +8,7 @@ namespace BankApp
     {
         private double _balance;
 
+
         public double Balance
         {
             get => _balance;

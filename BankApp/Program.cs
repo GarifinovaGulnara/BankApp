@@ -10,7 +10,7 @@ namespace BankApp
             Account acc2 = new Account();
             acc.Balance = 1000;
             acc2.Balance = 2000;
-            Operations.Transaction(acc, acc2, 500);
+            Operations.Profit(acc);
         }
     }
 }
